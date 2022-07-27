@@ -1,0 +1,5 @@
+package com.ajunior.workshop.config;
+
+public class CommandLineRunner {
+
+}

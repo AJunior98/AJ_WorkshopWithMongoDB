@@ -1,0 +1,15 @@
+package com.ajunior.workshop.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.ajunior.workshop.repositories.UserRepository;
+
+public class Instantiation implements CommandLineRunner{
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	
+	
+}

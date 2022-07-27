@@ -1,0 +1,14 @@
+package com.ajunior.workshop.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ajunior.workshop.repositories.UserRepository;
+
+public class Instantiation {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	
+	
+}
