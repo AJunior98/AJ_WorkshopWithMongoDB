@@ -1,0 +1,5 @@
+package com.ajunior.workshop.entities;
+
+public class User {
+
+}
