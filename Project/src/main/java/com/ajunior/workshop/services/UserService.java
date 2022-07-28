@@ -39,6 +39,25 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
+	public UserDTO update(String id, UserDTO dto) {
+		try {
+			Optional<User> obj = userRepository.findById(id);
+			User entity = obj.orElseThrow(() -> new ObjectNotFoundException(("Entity not found")));
+			updateData(dto, entity);
+
+			entity = userRepository.save(entity);
+			return new UserDTO(entity);
+		} 
+		catch(Exception e) {
+			throw new ObjectNotFoundException("Id not found " + id);
+		}
+	}
+	
+	public void updateData(UserDTO dto, User entity) {
+		entity.setName(dto.getName());
+		entity.setEmail(dto.getEmail());
+	}
+	
 	private void copyDtoToEntity(UserDTO dto, User entity) {
 		entity.setId(dto.getId());
 		entity.setName(dto.getName());
