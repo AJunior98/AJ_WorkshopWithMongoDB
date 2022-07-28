@@ -1,5 +1,6 @@
 package com.ajunior.workshop.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,7 @@ public class PostService {
 		return new PostDTO(entity);
 	}
 	
+	public List<Post> findByTitle(String text){
+		return postRepository.findByTitleContainingIgnoreCase(text);
+	}
 }
