@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ajunior.workshop.dto.UserDTO;
+import com.ajunior.workshop.dto.UserDTODetails;
 import com.ajunior.workshop.entities.User;
 import com.ajunior.workshop.repositories.UserRepository;
 import com.ajunior.workshop.services.exceptions.ObjectNotFoundException;
@@ -25,6 +26,12 @@ public class UserService {
 		Optional<User> obj = userRepository.findById(id);
 		User entity = obj.orElseThrow(() -> new ObjectNotFoundException(("Entity not found")));
 		return new UserDTO(entity);
+	}
+	
+	public UserDTODetails findByIdPosts(String id) {
+		Optional<User> obj = userRepository.findById(id);
+		User entity = obj.orElseThrow(() -> new ObjectNotFoundException(("Entity not found")));
+		return new UserDTODetails(entity);
 	}
 	
 	public UserDTO insert(UserDTO dto) {

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ajunior.workshop.dto.UserDTO;
+import com.ajunior.workshop.dto.UserDTODetails;
+import com.ajunior.workshop.entities.Post;
 import com.ajunior.workshop.entities.User;
 import com.ajunior.workshop.services.UserService;
 
@@ -49,7 +51,7 @@ public class UserResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> update( @PathVariable String id, @RequestBody UserDTO dto){
+	public ResponseEntity<UserDTO> update(@PathVariable String id, @RequestBody UserDTO dto){
 		dto = userService.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
@@ -58,5 +60,11 @@ public class UserResource {
 	public ResponseEntity<UserDTO> delete(@PathVariable String id){
 		userService.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping(value = "/{id}/posts")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+		UserDTODetails dto = userService.findByIdPosts(id);
+		return ResponseEntity.ok().body(dto.getPosts());
 	}
 }

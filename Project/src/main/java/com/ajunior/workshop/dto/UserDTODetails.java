@@ -1,29 +1,35 @@
 package com.ajunior.workshop.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.ajunior.workshop.entities.Post;
 import com.ajunior.workshop.entities.User;
 
-public class UserDTO implements Serializable {
+public class UserDTODetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String id;
 	private String name;
 	private String email;
 	
-	public UserDTO() {
+	private List<Post> posts = new ArrayList<>();
+	
+	public UserDTODetails() {
 	}
 
-	public UserDTO(String id, String name, String email) {
+	public UserDTODetails(String id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 	
-	public UserDTO(User entity) {
+	public UserDTODetails(User entity) {
 		id = entity.getId();
 		name = entity.getName();
 		email = entity.getEmail();
+		posts = entity.getPosts();
 	}
 
 	public String getId() {
@@ -48,5 +54,13 @@ public class UserDTO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 }
