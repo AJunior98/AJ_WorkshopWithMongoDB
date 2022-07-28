@@ -1,7 +1,0 @@
-package com.ajunior.workshop.repositories;
-
-public interface UserRepository {
-	
-	
-	
-}
