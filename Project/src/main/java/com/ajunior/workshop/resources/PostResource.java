@@ -22,6 +22,4 @@ public class PostResource {
 		PostDTO dto = postService.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
-	
-	
 }
