@@ -17,7 +17,7 @@ Para poder persistir dados no banco foi utilizado a dependência abaixo:
 </dependency>
 ```
 
-# Seed do banco de dados
+## Seed do banco de dados
 Diferentemente do banco relacional, ao invés de comandos SQL para semear o banco de dados, nos bancos NoSQL, somos obrigados a instanciar os objetos que deverão ser armazenados. Abaixo o seed do banco NoSQL:
 
 ```
